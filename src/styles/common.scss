@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('@/../public/fonts/Poppins/Poppins-Black.ttf');
+    src: url('@/../public/fonts/Poppins/Poppins-Bold.ttf'),
+         url('@/../public/fonts/Poppins/Poppins-ExtraBold.ttf'),
+         url('@/../public/fonts/Poppins/Poppins-Medium.ttf'),
+         url('@/../public/fonts/Poppins/Poppins-Thin.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+#app {display: flex; flex-wrap: wrap;
+    header {padding : 5px 15px; color : #666; font-family: 'Poppins'; width: 100%; display: block; background-color: #F6FAFC; height: 6.5rem;} 
+    nav {width: 25rem; background-color: #F6FAFC; padding: 2rem 0; height: 100vh;
+        &>ul>li {color: #727374; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.8rem;
+            ul,li {font-weight: 300; font-size: 1.4rem; color: #727374;}
+        }
+    }
+    #wrap {display: flex; width: calc(100% - 25rem); flex-wrap: wrap;
+        .cursor_pointer {cursor: pointer;}
+        .board {width: 100%; background-color: #F6F6F6; border: 1px solid #ddd; padding: 1rem; min-height: calc(100% - 6.5rem);}
+        .space {margin: 1.5rem; padding: 2rem; border: 1px solid #ddd; display: flex; width: fit-content; 
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);  max-width: calc(100% - 3rem);
+            .condition {display: flex; width: 40rem; justify-content: space-evenly; margin: 1rem 0;
+                .item {position: relative; width: 1.5rem; height: 1.5rem; cursor: context-menu;
+                    .state {overflow: hidden; position: relative; width: 1.5rem; height: 1.5rem; border-radius: 50%;
+                        .mark {width: 11.5rem; height: 1.5rem; background: linear-gradient(90deg, rgba(38,203,0,1) 0%, rgba(230,206,0,1) 50%, rgba(205,0,0,1) 100%);
+                        position: absolute; left: 0; z-index: 5;}
+                    }
+                    .tool_tip {opacity: 0; transition: .3s all; visibility: hidden; transform: translateX(-50%); position: absolute; 
+                        left: 50%; top: 1.5rem; background: none;
+                    }
+                    &:hover {
+                        .tool_tip {opacity: 1; visibility: visible;}
+                    }
+                }
+            }
+            // .highcharts-root {background: linear-gradient(0deg, rgba(107,89,139,1) 0%, rgba(54,46,119,1) 100%)}
+            .chart_wrap {display: flex; align-items: center; width: 100%;
+                .main_chart {width: 40%; background: none; margin-right: 10rem; position: relative; display: flex; flex-wrap: wrap; justify-content: center; 
+                    padding: 1rem;
+                    &>div {width: 100%; height: 20rem;}
+                }
+                li {display: flex; align-items: center;}
+                .child_charts {width: calc(60% - 10rem);
+                    &>li,&>li>i {position: relative; height: 10rem;
+                        &>div {height: 8rem; width: 60%; padding-right: 10rem;}
+                        &>ul {width: 40%;
+                            li {width: 100%;
+                                div {width: 100%; height: 3rem; transition: .3s all;}
+                            }
+                        }
+                        &>span {display: block; width: 40%; text-align: center;}
+                    }
+                    &>li>i {width: 100%; display: flex; position: static;}
+                }
+            }
+            &.type2 {position: relative; width: 70rem; height: 40rem; overflow: hidden;
+                .chart_wrap {position: absolute; transition: all .3s; left: 0; top: 50%; transform: translateY(-50%); width: calc(100vw - 35rem);
+                    &.depth2 {left: -57rem; transform: scale(1.2) translateY(-37%);  top: 50%;
+                        .move_depth {transform: rotate(180deg);}
+                        i>.move_depth {right: 40rem !important;}
+                    }
+                    &.depth3 {left: -107rem; transform: scale(1.2) translateY(-37%);
+                        .move_depth {transform: rotate(180deg); top: 0;}
+                        .child_charts {
+                            &>li {height: 40rem;
+                                .move_depth {right: 40rem; font-size: 2.5rem; padding-right: 5rem;}
+                                &>i>ul {
+                                    li {
+                                        div {width: 100%; height: 8rem;}
+                                    }
+                                }
+                            }
+                            &>li>ul> li div {height: 12rem;}
+                        }
+                    }
+                    .child_charts {
+                        &>li {
+                            .move_depth {right: 32rem; font-size: 2.5rem; padding-right: 10rem;}
+                        }
+                    }
+                    .move_depth {position: absolute; right: -2.5rem; height: calc(100% - 2rem); width: 2rem; display: flex; align-items: center; flex-wrap: wrap; 
+                        font-size: 3rem;
+                        span {cursor: pointer;}
+                    }
+                    &.focus-1 {top: 52rem;}
+                    &.focus-2 {top: 4rem;}
+                    &.focus-3 {top: -44rem;}
+                }
+                // &::after {display: block; content: ''; width: 25rem; height: 1px; background: red; position: absolute; right: 0; top: 95px;}
+            }
+        }
+    }
+
+    .gauge-container {width: 300px; margin: auto; text-align: center;
+    $gauge-full-color: #4caf50; // 진한 초록색
+    $gauge-partial-color: #a5d6a7; // 연한 초록색
+    $gauge-bg-color: #e0e0e0; // 게이지 배경 색상
+    $gauge-border-color: #ccc; // 게이지 경계선 색상
+    $gauge-width: 40px; // 세로형 게이지 너비
+    $gauge-height: 100px; // 세로형 게이지 높이
+    $transition-duration: 0.3s; // 애니메이션 지속 시간
+    ul {list-style-type: none; padding: 0; display: flex;
+        li {margin: 20px 0; display: flex; flex-direction: column; align-items: center; width: 5rem;}
+    }
+        .gauge {display: flex; flex-direction: inherit; transform: rotate(180deg); width: $gauge-width; height: $gauge-height; margin-bottom: 10px; 
+            background-color: $gauge-bg-color; border: 1px solid $gauge-border-color; border-radius: 5px; overflow: hidden;
+            .gauge-bar {flex: 1; width: 100%;  transition: background-color $transition-duration ease; 
+                &-full { background-color: $gauge-full-color; height: 1rem;
+                    &:not(:last-child) {border-top: 1px solid lighten($gauge-border-color, 10%);}
+                }
+                &-partial {background-color: $gauge-partial-color; height: 1rem;}
+            }
+            &>div {background-color: #e0e0e0;}
+        }
+    .title {font-size: 14px; color: darken(#333, 10%); margin-top: 5px;}
+        button {margin-top: 20px; padding: 8px 16px; background-color: $gauge-full-color; color: white; border: none; border-radius: 5px;
+            cursor: pointer; transition: background-color $transition-duration ease;
+            &:hover {background-color: darken($gauge-full-color, 10%);}
+        }
+    }
+}
