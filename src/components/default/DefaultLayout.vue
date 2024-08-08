@@ -1,6 +1,6 @@
 <template lang="">
     <nav>
-        <TreeNode v-for="node in treeData" :key="node.id" :node="node"></TreeNode>
+        <TreeNode v-for="(node, index) in treeData" :key="node.id" :node="node" :index="index"></TreeNode>
     </nav>
     <router-view />
 </template>
@@ -21,39 +21,90 @@ export default {
         init() {
             this.treeData.push({
                 id: 1,
-                name: 'Root 1',
+                name: 'BW',
                 children: [
-                {
-                    id: 2,
-                    name: 'Child 1.1',
-                    children: [
                     {
-                        id: 3,
-                        name: 'Grandchild 1.1.1'
+                        id: 2,
+                        name: 'PDF',
+                        state: '2'
                     },
                     {
-                        id: 4,
-                        name: 'Grandchild 1.1.2'
+                        id: 5,
+                        name: 'STE',
+                        state: '0'
                     }
-                    ]
-                },
-                {
-                    id: 5,
-                    name: 'Child 1.2'
-                }
                 ]
             },
             {
                 id: 6,
-                name: 'Root 2',
+                name: 'Test',
                 children: [
-                {
-                    id: 7,
-                    name: 'Child 2.1'
-                }
+                    {
+                        id: 7,
+                        name: 'NIS',
+                        state: '1'
+                    },
+                    {
+                        id: 8,
+                        name: 'MTE',
+                        state: '0'
+                    },
+                    {
+                        id: 9,
+                        name: 'STE',
+                        state: '0'
+                    }
                 ]
-            })
-        }
+            },
+            {
+                id: 6,
+                name: 'CLOUD',
+                children: [
+                    {
+                        id: 7,
+                        name: 'TR2',
+                        state: '0'
+                    },
+                    {
+                        id: 8,
+                        name: 'HCT',
+                        state: '0'
+                    },
+                ]
+            },
+            {
+                id: 6,
+                name: 'ERP',
+                children: [
+                    {
+                        id: 7,
+                        name: 'PDF',
+                        state: '2'
+                    },
+                    {
+                        id: 8,
+                        name: 'BDW',
+                        state: '1'
+                    },
+                ]
+            },
+            {
+                id: 6,
+                name: 'default',
+                children: [
+                    {
+                        id: 7,
+                        name: 'HMJCLOUD',
+                        state: '0'
+                    },
+                    {
+                        id: 8,
+                        name: 'PFD',
+                        state: '2'
+                    },
+                ]
+            }
+        )}
     },
     mounted() {
         this.init()

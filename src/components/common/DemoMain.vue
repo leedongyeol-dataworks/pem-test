@@ -2,15 +2,15 @@
     <div id="wrap">
         <DefaultHeader />
         <div class="board">
-            <ParenChart />
-            <ParenChart2 />
+            <ParenData />
+            <ParenData2 />
             <GaugeGraph />
         </div>
     </div>
 </template>
 <script>
-import ParenChart from '@/components/ParenChart.vue'
-import ParenChart2 from '@/components/ParenChart2.vue'
+import ParenData from '@/components/ParenData.vue'
+import ParenData2 from '@/components/ParenData2.vue'
 import GaugeGraph from '@/components/GaugeGraph.vue'
 import DefaultHeader from "@/components/default/DefaultHeader.vue"
 
@@ -18,8 +18,8 @@ export default {
     name: 'DemoMain',
     components: {
         DefaultHeader,
-        ParenChart,
-        ParenChart2,
+        ParenData,
+        ParenData2,
         GaugeGraph
     }
 }
