@@ -1,6 +1,7 @@
 <template>
     <ul>
-      <li @click="toggle" class="top_node cursor_pointer">
+      <li @click="toggle" 
+      :class="['top_node', 'cursor_pointer', parentClass]">
         {{ node.name }}
         <span v-if="node.state === '0'">⚫</span>
         <span v-else-if="node.state === '1'">🟢</span>
@@ -36,6 +37,23 @@
     computed: {
       hasChildren() {
         return this.node.children && this.node.children.length > 0;
+      },
+      parentClass() {
+        // 자식 노드 중에서 state가 "3"인 경우 "red" 클래스가 우선 적용
+        if (this.hasChildren) {
+          for (const child of this.node.children) {
+            if (child.state === '3') {
+              return 'red';
+            }
+          }
+          // 자식 노드 중 state가 "2"인 경우 "yellow" 클래스 적용
+          for (const child of this.node.children) {
+            if (child.state === '2') {
+              return 'yellow';
+            }
+          }
+        }
+        return '';
       }
     },
     methods: {
