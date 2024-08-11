@@ -10,12 +10,13 @@
   }
 
 #app {display: flex; flex-wrap: wrap;
-    header {padding : 5px 15px; color : #666; font-family: 'Poppins'; width: 100%; display: block; background-color: #F6FAFC; height: 6.5rem; position: relative;
-        .main_menu {display: flex; position: absolute; left: 50%; transform: translate(-50%,-50%); top: 50%; font-size: 2.5rem; width: 30rem; justify-content: space-around;
+    header {padding : 5px 15px; color : #666; font-family: 'Poppins'; width: 100%; display: block; background-color: #F6FAFC; height: 8.5rem;
+        .main_menu {display: flex; position: absolute; left: 50%; transform: translate(-50%,-50%); top: 4.5rem; font-size: 2.5rem; width: 30rem; justify-content: space-around;
             li {cursor: pointer; color: #000;}
         }
     } 
-    nav {width: 25rem; background-color: #F6FAFC; padding: 2rem 0; height: 100vh;
+    nav {width: 25rem; background-color: #F6FAFC; padding: 2rem .8rem; height: 100vh;
+        &>img {margin-bottom: 2rem;}
         &>ul>li {color: #727374; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.8rem; position: relative; width: fit-content;
             &:first-child {
                 &::after {display: block; content: ''; width: .5rem; height: .5rem; border-radius: 50%; background: #fff; position: absolute;

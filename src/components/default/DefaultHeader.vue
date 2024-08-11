@@ -1,6 +1,5 @@
 <template lang="">
     <header>
-        <img src="@/assets/images/hanamon_edb_bg.png">
         <ul class="main_menu">
             <li>
                 <i class="xi-layout-snb-o"></i>

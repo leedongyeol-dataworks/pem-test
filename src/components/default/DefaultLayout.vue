@@ -1,5 +1,6 @@
 <template lang="">
     <nav>
+        <img src="@/assets/images/hanamon_edb_bg.png">
         <TreeNode v-for="(node, index) in treeData" :key="node.id" :node="node" :index="index"></TreeNode>
     </nav>
     <router-view />
