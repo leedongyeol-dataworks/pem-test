@@ -1,5 +1,5 @@
 <template lang="">
-    <nav class="type2">
+    <nav class="type2 ">
         <TreeNode></TreeNode>
         <!-- <TreeNode v-for="(node, index) in treeData" :key="node.id" :node="node" :index="index"></TreeNode> -->
     </nav>

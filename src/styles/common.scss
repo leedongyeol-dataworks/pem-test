@@ -65,13 +65,17 @@
                     img {width: 2rem; height: 2rem;}
                     &::after {display: none !important;}
                 }
-                &.type2 {position: absolute; top: 5rem; bottom: auto; left: 1.5rem;
-                width: 2rem;}
+                &.type2 {position: absolute; top: 8rem; bottom: auto; left: 1.5rem; width: 2rem;
+                    .sub_menu {position: absolute; display: flex; padding: 1.5rem; background: #000; border-radius: .5rem; margin-top: -1rem; margin-left: -25rem;
+                        transition: .3s all; margin-top: -53px;
+                        li {
+                            select {font-size: 1.6rem; color: #000; border-radius: .5rem;}
+                        }
+                        &.active {margin-left: 3rem;}
+                    }
+                }
             }
             .logo_s {position: absolute; top: 1.5rem; width: 2rem; left: 50%; transform: translateX(-50%); cursor: pointer;}
-            &.type3 {
-                .logo_s {position: static; width: 2rem; left: 50%; transform: translateX(0%); cursor: pointer;}
-            }
         }
     }
     #wrap {display: flex; flex-wrap: wrap;
@@ -183,5 +187,20 @@
             &:hover {background-color: darken($gauge-full-color, 10%);}
         }
     }
-    .temporary {margin-left: 52px;}
+    .temporary {margin-left: 52px;
+        img {margin: 6.5rem 0 0 5rem;}
+    }
+    .full_menu {position: fixed; width: calc(100vw - 5rem); height: 100vh; z-index: 20; color: #000; top: 0; left: 5rem; background: #fff;
+        align-items: center; justify-content: center; display: flex; flex-wrap: wrap;
+        .depth1 {width: 90rem; display: flex; flex-wrap: wrap;
+            &>li {padding: 3rem;
+                strong {font-size: 2.5rem;}
+                .depth2 {padding: 1rem 0 .5rem 2rem; font-size: 1.8rem;
+                    &>li {
+                        .depth3 {padding: 1rem; font-size: 1.4rem;}
+                    }
+                }
+            }
+        }
+    }
 }

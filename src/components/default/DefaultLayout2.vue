@@ -1,5 +1,5 @@
 <template lang="">
-    <nav class="type2">
+    <nav class="type2 type3">
         <TreeNode></TreeNode>
     </nav>
     <router-view />
