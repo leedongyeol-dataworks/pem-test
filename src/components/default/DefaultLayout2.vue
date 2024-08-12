@@ -1,12 +1,11 @@
 <template lang="">
     <nav class="type2">
         <TreeNode></TreeNode>
-        <!-- <TreeNode v-for="(node, index) in treeData" :key="node.id" :node="node" :index="index"></TreeNode> -->
     </nav>
     <router-view />
 </template>
 <script>
-import TreeNode from '@/components/common/IconNode2.vue';
+import TreeNode from '@/components/common/IconNode.vue';
 
 export default {
     name: "DefaultLayout",

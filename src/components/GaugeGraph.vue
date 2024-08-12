@@ -63,7 +63,7 @@ export default {
     },
   },
   mounted() {
-    this.interval = setInterval(this.updateData, 5000);
+    this.interval = setInterval(this.updateData, 10000);
   },
   beforeUnmount() {
     clearInterval(this.interval);
